@@ -13,43 +13,27 @@ function App() {
     setSelectedUser(user);
   };
 
-  const loadingStyle = {
-    padding: '12px', 
-    backgroundColor: '#f5f5f5', 
-    borderRadius: '4px', 
-    color: '#666'
-  };
-
-  const contentLayoutStyle = {
-    display: 'flex', 
-    gap: '24px', 
-    padding: '20px', 
-    maxWidth: '1000px', 
-    margin: '20px auto',
-    flexDirection: window.innerWidth < 768 ? 'column' : 'row'
-  };
-
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1 style={{ margin: 0, color: '#ffffff' }}>Container App</h1>
-        <Suspense fallback={<div style={loadingStyle}>Loading button...</div>}>
+        <h1>Container App</h1>
+        <Suspense fallback={<div className="loading-fallback">Loading button...</div>}>
           <RemoteButton
             text="Button From Remote App"
             onClick={() => alert("Hello, This button is from remote app!")}
-            style={{ marginLeft: '10px' }}
+            style={{ marginLeft: '10px',backgroundColor:'#1648ff'}}
           />
         </Suspense>
       </header>
       
-      <div style={contentLayoutStyle}>
-        <Suspense fallback={<div style={loadingStyle}>Loading user list...</div>}>
-          <div style={{ flex: 1, minWidth: 0 }}>
+      <div className="content-layout">
+        <Suspense fallback={<div className="loading-fallback">Loading user list...</div>}>
+          <div className="content-panel">
             <RemoteUserList onUserSelect={handleUserSelect} />
           </div>
         </Suspense>
         
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="content-panel">
           <UserDetails user={selectedUser} />
         </div>
       </div>
