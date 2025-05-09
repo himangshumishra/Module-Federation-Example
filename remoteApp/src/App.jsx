@@ -10,7 +10,7 @@ function App() {
         <div className="card">
           <div style={{ marginTop: '20px' }}>
             <Button 
-              text="I'm a Button from Remote App" 
+              text="I'm a Button Here At Remote App" 
               onClick={() => alert('Button in Remote App clicked!')} 
             />
           </div>

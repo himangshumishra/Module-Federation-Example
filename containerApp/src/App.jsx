@@ -36,7 +36,7 @@ function App() {
         <Suspense fallback={<div style={loadingStyle}>Loading button...</div>}>
           <RemoteButton
             text="Button From Remote App"
-            onClick={() => alert("Hello from container app!")}
+            onClick={() => alert("Hello, This button is from remote app!")}
             style={{ marginLeft: '10px' }}
           />
         </Suspense>
